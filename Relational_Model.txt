@@ -1,0 +1,82 @@
+# https://app.quickdatabasediagrams.com/
+
+#
+# Relational Model of Cholito
+#
+
+user
+-
+id int
+email string
+pass string
+
+ong
+-
+id int
+name string
+picture string
+address geo
+
+favorite
+-
+user_id int FK >- user.id
+ong_id int FK >- ong.id
+
+municipality as muni
+-
+id int
+name string
+picture path
+
+complaint
+-
+id int
+place geo
+type varchar(30)
+animal_id int FK >- animal.id
+hurt binary
+date datetime
+municipality_id int FK >- muni.id
+status string
+
+animal
+-
+id int
+color string
+name NULL string
+type string FK >- type_animal.id
+picture NULL string
+sex string
+age NULL int
+
+type_animal
+-
+id int
+name string
+
+adoption
+-
+id int
+animal_id int FK >- animal.id
+ong_id int FK >- ong.id
+arrival datetime
+departure NULL datetime
+user_id NULL int FK >- user.id
+
+
+
+[settings]
+Position 35 176
+Zoom 100
+DefaultFieldType int
+CaseSensitive on
+
+[layout]
+ong 425 155
+municipality 632 175
+complaint 625 -118
+animal 405 -117
+user 13 202
+adoption 174 29
+favorite 225 256
+type_animal 192 -114
