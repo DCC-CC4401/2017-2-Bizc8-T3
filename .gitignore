@@ -2,3 +2,6 @@
 *.pyc
 docker/
 .idea
+.idea/*
+log/
+__pycache__/*
