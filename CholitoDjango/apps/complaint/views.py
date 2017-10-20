@@ -6,3 +6,8 @@ from django.views.generic import TemplateView
 class ListComplaintsView(TemplateView):
 
     template_name = 'complaint/list-complaints.html'
+
+
+class StatisticsComplaintsView(TemplateView):
+
+    template_name = 'complaint/statistics-complaints.html'
