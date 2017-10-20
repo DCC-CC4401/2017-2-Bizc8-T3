@@ -1,4 +1,5 @@
 {% extends 'base/natural-user.html' %}
+{% load static %}
 
 {% block content %}
     <!-- Content Wrapper. Contains page content -->
@@ -10,7 +11,17 @@
         <!-- Main content -->
         <section class="content container-fluid">
             
-            <div id="map" class="c-mapa"></div>
+            <!-- <div id="map" class="c-map"></div> -->
+            <div class="c-map" style="text-align:center;">
+                <img src="{% static 'img/mapa.jpg' %}"
+                    class="c-map__img img-responsive" alt="Map">
+                <img src="{% static 'img/pin1.png' %}"
+                    class="img-responsive c-pin--1" alt="Pin 1">
+                <img src="{% static 'img/pin2.png' %}"
+                    class="img-responsive c-pin--2" alt="Pin 2">
+                <img src="{% static 'img/pin3.png' %}"
+                    class="img-responsive c-pin--3" alt="Pin 3">
+            </div>
     
         </section>
         <!-- /.content -->
@@ -19,7 +30,7 @@
 {% endblock %}
 
 {% block js %}
-    <script>
+    <!-- <script>
         function myMap() {
             var mapCanvas = document.getElementById("map");
             var myCenter = new google.maps.LatLng(-33.457394,-70.664601);
@@ -63,7 +74,7 @@
             });
             infowindow.open(map,marker);
         }
-    </script>
+    </script> -->
     <!-- Mapa de google -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKrwK5Ra7Lrbam0i1ifeMrlPHnN1Tctpk&callback=myMap"></script>    
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKrwK5Ra7Lrbam0i1ifeMrlPHnN1Tctpk&callback=myMap"></script>     -->
 {% endblock %}

@@ -65,7 +65,8 @@
             <section class="sidebar">
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="treeview active menu-open">
+                    <!-- <li class="treeview active menu-open"> -->
+                    <li class="treeview active">
                         <a href="#">
                             <i class="fa fa-search"></i>
                             <span>Adoptar</span>
@@ -233,7 +234,7 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Imagen de perfil</label>
                             <br>
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image" width="150">
+                            <img src="{% static 'img/user2-160x160.jpg' %}" class="user-image" alt="User Image" width="150">
                             <br><br>
                             <input type="file" id="exampleInputFile">
                         </div>
