@@ -11,3 +11,8 @@ class ListComplaintsView(TemplateView):
 class StatisticsComplaintsView(TemplateView):
 
     template_name = 'complaint/statistics-complaints.html'
+
+
+class AddComplaintView(TemplateView):
+
+    template_name = 'complaint/add-complaint.html'
