@@ -1,4 +1,7 @@
 {% load static %}
+{% url 'complaint:add' as complaint_add %}
+{% url 'adoption:home' as adoption_home %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -52,7 +55,10 @@
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <li>
+                        <li
+                            {% if request.get_full_path == complaint_add %}
+                                class="active"
+                            {% endif %}>
                             <a href="{% url 'complaint:add' %}">
                                 <i class="fa fa-bullhorn"></i>
                                 <span>Denunciar</span>
@@ -71,44 +77,53 @@
             <section class="sidebar">
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <!-- <li class="treeview active menu-open"> -->
-                    <li class="treeview active">
-                        <a href="#">
-                            <i class="fa fa-search"></i>
-                            <span>Adoptar</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu c-filtro-adoptar">
-                            <div class="checkbox">
+                    {% if request.get_full_path == adoption_home %}
+                        <!-- <li class="treeview active menu-open"> -->
+                        <li class="treeview active">
+                            <a href="{% url 'adoption:home' %}">
+                                <i class="fa fa-search"></i>
+                                <span>Adoptar</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu c-filtro-adoptar">
+                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Tipo
+                                        </label>
+                                    </div>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Perro</option>
+                                        <option>Gato</option>
+                                        <option>Loro</option>
+                                        <option>Vaca</option>
+                                        <option>Caballo</option>
+                                    </select>
+                                </div>
+                                <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"> Tipo
+                                        <input type="checkbox"> Edad
                                     </label>
                                 </div>
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option>Perro</option>
-                                    <option>Gato</option>
-                                    <option>Loro</option>
-                                    <option>Vaca</option>
-                                    <option>Caballo</option>
-                                </select>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Edad
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option>0-1</option>
-                                    <option>2-4</option>
-                                    <option>4-10</option>
-                                </select>
-                            </div>
-                        </ul>
-                    </li>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>0-1</option>
+                                        <option>2-4</option>
+                                        <option>4-10</option>
+                                    </select>
+                                </div>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'adoption:home' %}">
+                                <i class="fa fa-search"></i>
+                                <span>Adoptar</span>
+                            </a>
+                        </li>
+                    {% endif %}
                     <li>
                         <a href="#">
                             <i class="fa fa-star"></i>
