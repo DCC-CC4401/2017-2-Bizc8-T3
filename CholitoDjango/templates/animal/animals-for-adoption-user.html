@@ -4,86 +4,95 @@
 {% block content %}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    <div class="row">
-                        <div class="c-fundacion-title">
-                            <img src="{% static 'img/ong-edra.png' %}" class="user-image" alt="Fundacion EDRA Image" width="100">
-                        </div>
-                        <div class="col-xs-6">
-                            <br>
-                            Fundación EDRA
-                            &nbsp;<i class="fa fa-star-o c-star--empty"></i>
-                            <br>
-                            <small>
-                                <i class="fa fa-star c-star"></i>
-                                182
-                            </small>
-                        </div>
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                <div class="row">
+                    <div class="c-fundacion-title">
+                        <img src="{% static 'img/ong-edra.png' %}"
+                            class="user-image"
+                            alt="Fundacion EDRA Image"
+                            width="100">
                     </div>
-                </h1>
-            </section>
-            <!-- Main content -->
-            <section class="content">
+                    <div class="col-xs-6">
+                        <br>
+                        Fundación EDRA
+                        &nbsp;<i class="fa fa-star-o c-star--empty"></i>
+                        <br>
+                        <small>
+                            <i class="fa fa-star c-star"></i>
+                            182
+                        </small>
+                    </div>
+                </div>
+            </h1>
+        </section>
+        <!-- Main content -->
+        <section class="content">
 
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="box box-primary">
-                            <div class="box-body">
-                                Puedes adoptar los siguientes animalitos que
-                                tiene la Fundación EDRA a su cuidado.
-                            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            Puedes adoptar los siguientes animalitos que
+                            tiene la Fundación EDRA a su cuidado.
                         </div>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon" style="background:url('/static/img/perro-100x100.jpg');">
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon"
+                            style="background:url('/static/img/perro-100x100.jpg');">
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-number">
+                                Candy
                             </span>
-                            <div class="info-box-content">
-                                <span class="info-box-number">
-                                    Candy
-                                </span>
-                                <span class="info-box-text">Perro | Hembra</span>
-                                <div class="c-info-box__btns">
-                                    <div class="c-info-box__btns__one">
-                                        <a href="#" type="button" class="btn btn-xs btn-info">
-                                            <i class="fa fa-eye"></i>
-                                            &nbsp; Ver
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon" style="background:url('/static/img/gato-100x100.jpg') right bottom;">
-                            </span>
-                            <div class="info-box-content">
-                                <span class="info-box-number">
-                                    Tomás
-                                </span>
-                                <span class="info-box-text">Gato | Macho</span>
-                                <div class="c-info-box__btns">
-                                    <div class="c-info-box__btns__one">
-                                        <a href="#" type="button" class="btn btn-xs btn-info">
-                                            <i class="fa fa-eye"></i>
-                                            &nbsp; Ver
-                                        </a>
-                                    </div>
+                            <span class="info-box-text">Perro | Hembra</span>
+                            <div class="c-info-box__btns">
+                                <div class="c-info-box__btns__one">
+                                    <a href="{% url 'animal:detail' %}"
+                                        type="button"
+                                        class="btn btn-xs btn-info">
+                                        <i class="fa fa-eye"></i>
+                                        &nbsp; Ver
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
-                
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon"
+                            style="background:url('/static/img/gato-100x100.jpg') right bottom;">
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-number">
+                                Tomás
+                            </span>
+                            <span class="info-box-text">Gato | Macho</span>
+                            <div class="c-info-box__btns">
+                                <div class="c-info-box__btns__one">
+                                    <a href="{% url 'animal:detail' %}"
+                                        type="button"
+                                        class="btn btn-xs btn-info">
+                                        <i class="fa fa-eye"></i>
+                                        &nbsp; Ver
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 {% endblock %}
