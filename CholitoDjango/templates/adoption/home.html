@@ -55,12 +55,18 @@
             <div class="c-map" style="text-align:center;">
                 <img src="{% static 'img/mapa.jpg' %}"
                     class="c-map__img img-responsive" alt="Map">
-                <img src="{% static 'img/pin1.png' %}"
-                    class="img-responsive c-pin--1" alt="Pin 1">
-                <img src="{% static 'img/pin2.png' %}"
-                    class="img-responsive c-pin--2" alt="Pin 2">
-                <img src="{% static 'img/pin3.png' %}"
-                    class="img-responsive c-pin--3" alt="Pin 3">
+                <a href="{% url 'animal:animals-for-adoption' %}">
+                    <img src="{% static 'img/pin1.png' %}"
+                        class="img-responsive c-pin--1" alt="Pin 1">
+                </a>
+                <a href="{% url 'animal:animals-for-adoption' %}">
+                    <img src="{% static 'img/pin2.png' %}"
+                        class="img-responsive c-pin--2" alt="Pin 2">
+                </a>
+                <a href="{% url 'animal:animals-for-adoption' %}">
+                    <img src="{% static 'img/pin3.png' %}"
+                        class="img-responsive c-pin--3" alt="Pin 3">
+                </a>
             </div>
     
         </section>

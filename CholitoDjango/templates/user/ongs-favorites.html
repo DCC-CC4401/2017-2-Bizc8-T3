@@ -25,10 +25,15 @@
                                 </h5>
                             </div>
                             <div class="widget-user-image">
-                                <img class="img-circle" src="{% static 'img/ong-edra.png' %}" alt="User Avatar">
+                                <img 
+                                    class="img-circle"
+                                    src="{% static 'img/ong-edra.png' %}"
+                                    alt="User Avatar">
                             </div>
                             <div class="c-box__footer">
-                                <a href="#" type="button" class="btn btn-primary">
+                                <a
+                                    href="{% url 'animal:animals-for-adoption' %}"
+                                    type="button" class="btn btn-primary">
                                     Ver
                                 </a>
                             </div>
