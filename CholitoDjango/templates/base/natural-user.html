@@ -1,6 +1,7 @@
 {% load static %}
 {% url 'complaint:add' as complaint_add %}
 {% url 'adoption:home' as adoption_home %}
+{% url 'user:ongs-favorites' as  user_ongs_favorites %}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -124,8 +125,11 @@
                             </a>
                         </li>
                     {% endif %}
-                    <li>
-                        <a href="#">
+                    <li
+                        {% if request.get_full_path == user_ongs_favorites %}
+                            class="active"
+                        {% endif %}>
+                        <a href="{% url 'user:ongs-favorites' %}">
                             <i class="fa fa-star"></i>
                             <span>ONG</span>
                         </a>
