@@ -1,4 +1,8 @@
 {% load static %}
+
+{% url 'complaint:list' as complaint_list %}
+{% url 'complaint:statistics' as complaint_statistics %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -103,13 +107,21 @@
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <!-- Optionally, you can add icons to the links -->
-                    <li>
-                        <a href="{% url 'complaint:list' %}">
+                    <li
+                        {% if request.get_full_path == complaint_list %}
+                            class="active"
+                        {% endif %}>
+                        <a href="{{ complaint_list }}">
                             <i class="fa fa-bullhorn"></i>
                             <span>Denuncias</span>
                         </a>
                     </li>
-                    <li class="treeview active menu-open">
+                    <li
+                        {% if request.get_full_path == complaint_statistics %}
+                            class="treeview active"
+                        {% else %}
+                            class="treeview"
+                        {% endif %}>
                         <a href="#">
                             <i class="fa fa-bar-chart"></i>
                             <span>Estadísticas</span>
@@ -118,13 +130,16 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li>
-                                <a href="{% url 'complaint:statistics' %}">
+                            <li
+                                {% if request.get_full_path == complaint_statistics %}
+                                    class="active"
+                                {% endif %}>
+                                <a href="{{ complaint_statistics }}">
                                     <i class="fa fa-circle-o"></i>
                                     Denuncias
                                 </a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="#">
                                     <i class="fa fa-circle-o"></i>
                                     ONG
