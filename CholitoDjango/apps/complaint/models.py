@@ -19,7 +19,7 @@ class Complaint(models.Model):
     hurt = models.CharField(max_length=1)
     date = models.DateTimeField('date published')
     status = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=300, null=True, blank=True)
     commune = models.CharField(max_length=100)
 
     def __str__(self):
