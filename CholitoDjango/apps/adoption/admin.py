@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import ONG, Adoption
+
+admin.site.register(ONG)
+admin.site.register(Adoption)
