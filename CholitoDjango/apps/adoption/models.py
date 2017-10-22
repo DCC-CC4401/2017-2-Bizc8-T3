@@ -4,15 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 from apps.animal.models import Animal
-
-class ONG(models.Model):
-    name = models.CharField(max_length=100)
-    picture = models.CharField(max_length=100)
-    commune = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
+from apps.user.models import ONG
 
 class Adoption(models.Model):
     animal_id = models.ForeignKey(Animal, on_delete=models.CASCADE)

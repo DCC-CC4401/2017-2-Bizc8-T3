@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from .models import Municipality, Complaint
+from .models import Complaint
 
-admin.site.register(Municipality)
 admin.site.register(Complaint)

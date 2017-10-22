@@ -5,14 +5,6 @@ from django.utils import timezone
 
 from apps.animal.models import Animal
 
-class Municipality(models.Model):
-    picture = models.CharField(max_length=100)
-    commune = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.commune
-
-
 class Complaint(models.Model):
     type = models.CharField(max_length=100)
     animal_id = models.ForeignKey(Animal, on_delete=models.CASCADE)
