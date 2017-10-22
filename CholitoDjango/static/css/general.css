@@ -1,3 +1,11 @@
+.e-table__tr {
+    cursor: pointer;
+}
+
+/* .e-table__td {
+    vertical-align: middle;
+} */
+
 .c-bar-chart {
     height: 300px;
 }
