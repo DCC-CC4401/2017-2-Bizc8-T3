@@ -18,7 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('apps.adoption.urls', namespace='adoption')),
-    url(r'^user/',  include('apps.user.urls')),
     url(r'^denuncias/', include('apps.complaint.urls', namespace='complaint')),
     url(r'^', include('apps.animal.urls', namespace='animal')),
     url(r'^', include('apps.user.urls', namespace='user')),

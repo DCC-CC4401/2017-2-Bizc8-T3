@@ -13,7 +13,8 @@ def index(request):
 
 
 
-
+class LogNaturalView(TemplateView):
+    template_name = 'base/natural-user.html'
 
 class OngsFavoritesView(TemplateView):
     template_name = 'user/ongs-favorites.html'
@@ -28,13 +29,13 @@ class SignUp(View):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('user/login/'))
+            return render(request,'user/login.html')
 
         else:
             form = RegistrationForm()
 
             args = {'form': form}
-        return render(request, 'user/signup.html', args)
+        return  render(request, 'user/register.html', args)
 
 
 class Login(View):
@@ -55,13 +56,7 @@ class Login(View):
             return render(request, 'user/login.html', {'error': 'Usuario o contrasena invalidos', 'form': form, })
         if user.is_active:
             auth.login(request, user)
-            userop = User.objects.get(user=user)
-            type = userop.type
-            if type == 1:  # natural
-
-                return redirect('natural-user')
-            elif type == 2:  # municipal
-                return redirect('municipal_index')
+            return render(request,'municipal_index')
         else:
             return redirect('ong_index')
         return render(request, 'user/login.html', {'form': form})
