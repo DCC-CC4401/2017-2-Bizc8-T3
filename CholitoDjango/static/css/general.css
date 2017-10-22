@@ -110,6 +110,13 @@
     right: 4%;
 }
 
+.c-pin-denuncia {
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    left: 45%;
+}
+
 .c-filtro-adoptar {
     padding: 10px;
     color: white;
