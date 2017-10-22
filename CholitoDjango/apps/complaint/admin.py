@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Municipality, Complaint
+
+admin.site.register(Municipality)
+admin.site.register(Complaint)
