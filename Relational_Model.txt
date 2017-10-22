@@ -27,7 +27,6 @@ ong_id int FK >- ong.id
 municipality as muni
 -
 id int
-name string
 picture string # file name
 commune string
 
@@ -39,7 +38,6 @@ type text
 animal_id int FK >- animal.id
 hurt binary
 date datetime
-municipality_id int FK >- muni.id
 status string
 description text
 commune string
@@ -47,11 +45,11 @@ commune string
 animal
 -
 id int
-color string
 name NULL string
 type string FK >- type_animal.id
-picture NULL string
 sex string
+color string
+picture NULL string
 age NULL int
 
 type_animal
