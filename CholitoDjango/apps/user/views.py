@@ -8,6 +8,11 @@ class LoginView(TemplateView):
     template_name = 'user/login.html'
 
 
+class RegisterView(TemplateView):
+
+    template_name = 'user/register.html'
+
+
 class OngsFavoritesView(TemplateView):
 
     template_name = 'user/ongs-favorites.html'
