@@ -16,12 +16,12 @@
                         <div class="box-body">
                             <p>
                                 Por favor, completa este formulario para
-                                denunciar una situación de maltrato y/o
-                                abandono.
+                                denunciar una situación de abandono o
+                                maltrato.
                             </p>
                             <form role="form">
                                 <div class="box-body">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label>
                                             Tipo de denuncia
                                         </label>
@@ -80,6 +80,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label for="type-complaint">
+                                            Tipo de Denuncia
+                                        </label>
+                                        <select class="form-control"
+                                            name="type-complaint"
+                                            id="type-complaint">
+                                            <option></option>
+                                            <option>Abandono en la Calle</option>
+                                            <option>Exposición a temperaturas exrtremas</option>
+                                            <option>Falta de agua</option>
+                                            <option>Falta de comida</option>
+                                            <option>Violencia</option>
+                                            <option>Venta ambulante</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="input-type-animal">
@@ -95,6 +111,7 @@
                                             <option>Loro</option>
                                             <option>Vaca</option>
                                             <option>Caballo</option>
+                                            <option value="">Otro</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
