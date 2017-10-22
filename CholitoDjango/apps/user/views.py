@@ -12,6 +12,9 @@ def index(request):
     return render(request, 'user/index.html')
 
 
+
+
+
 class OngsFavoritesView(TemplateView):
     template_name = 'user/ongs-favorites.html'
 
@@ -19,7 +22,7 @@ class OngsFavoritesView(TemplateView):
 class SignUp(View):
     def get(self, request):
         form = RegistrationForm()
-        return render(request, 'user/signup.html', {'form': form})
+        return render(request, 'user/register.html', {'form': form})
 
     def post(self, request):
         form = RegistrationForm(request.POST)

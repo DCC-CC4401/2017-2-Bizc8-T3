@@ -16,6 +16,12 @@ class RegistrationForm(UserCreationForm):
             'password1',
             'password2'
         )
+    def clean_email(self):
+        email= self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
+        if email and User.objects.filter(email = email).exclude(username=username).exists():
+            raise  forms.validationEror(u'El correo ya fue usado')
+        return email
 
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)

@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Municipality, ONG,UserProfile
+admin.site.register(UserProfile)
+admin.site.register(Municipality)
+admin.site.register(ONG)
