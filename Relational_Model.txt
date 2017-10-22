@@ -9,6 +9,7 @@ user
 id int
 email string
 pass string
+type string
 
 ong
 -
@@ -16,6 +17,7 @@ id int
 name string
 picture string
 address geo
+commune string
 
 favorite
 -
@@ -26,18 +28,21 @@ municipality as muni
 -
 id int
 name string
-picture path
+picture string # file name
+commune string
 
 complaint
 -
 id int
 place geo
-type varchar(30)
+type text
 animal_id int FK >- animal.id
 hurt binary
 date datetime
 municipality_id int FK >- muni.id
 status string
+description text
+commune string
 
 animal
 -
@@ -66,14 +71,14 @@ user_id NULL int FK >- user.id
 
 
 [settings]
-Position 35 176
+Position 46 154
 Zoom 100
 DefaultFieldType int
 CaseSensitive on
 
 [layout]
 ong 425 155
-municipality 632 175
+municipality 632 209
 complaint 625 -118
 animal 405 -117
 user 13 202
