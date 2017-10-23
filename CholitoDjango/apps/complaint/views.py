@@ -44,7 +44,7 @@ class AddComplaintView(View):
                               description=description)
         complaint.save()
 
-        return render(request, 'adoption/home.html')
+        return redirect('/')
 
 
 class ComplaintDetailView(View):
