@@ -1,5 +1,7 @@
 from django.db import models
-
+from apps.animal.models import Animal
+from apps.user.models import ONG
+from apps.user.models import User
 # Create your models here.
 class Adoption(models.Model):
     id = models.IntegerField()
