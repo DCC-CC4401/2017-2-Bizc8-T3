@@ -1,23 +1,36 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.views import View
 from django.views.generic import TemplateView
+from django.urls import reverse
 
 
-class ListComplaintsView(TemplateView):
-
-    template_name = 'complaint/list-complaints.html'
-
-
-class StatisticsComplaintsView(TemplateView):
-
-    template_name = 'complaint/statistics-complaints.html'
+def list_complaints(request):
+    if request.user.typeuser.name != 'Municipality':
+        return HttpResponseRedirect(reverse('adoption:home'))
+    else:
+        return render(request, 'complaint/list-complaints.html')
 
 
-class AddComplaintView(TemplateView):
+def statistics_complaints(request):
+    if request.user.typeuser.name != 'Municipality':
+        return HttpResponseRedirect(reverse('adoption:home'))
+    else:
+        return render(request, 'complaint/statistics-complaints.html')
 
-    template_name = 'complaint/add-complaint.html'
+
+def add_complaint(request):
+    if request.user.is_authenticated == False:
+        return render(request, 'complaint/add-complaint.html')
+    else:
+        if request.user.typeuser.name == 'Natural':
+            return render(request, 'complaint/add-complaint.html')
+        elif request.user.typeuser.name == 'Municipality':
+            return HttpResponseRedirect(reverse('complaint:list'))
 
 
-class ComplaintDetailView(TemplateView):
-
-    template_name = 'complaint/complaint-detail.html'
+def complaint_detail(request):
+    if request.user.typeuser.name != 'Municipality':
+        return HttpResponseRedirect(reverse('adoption:home'))
+    else:
+        return render(request, 'complaint/complaint-detail.html')
