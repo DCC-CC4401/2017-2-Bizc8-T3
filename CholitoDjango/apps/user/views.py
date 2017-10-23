@@ -6,9 +6,9 @@ from django.core.urlresolvers import reverse_lazy
 from apps.user.forms import RegisterForm
 
 
-class LoginView(TemplateView):
+# class LoginView(TemplateView):
 
-    template_name = 'user/login.html'
+#     template_name = 'user/login.html'
 
 
 # class RegisterView(TemplateView):
