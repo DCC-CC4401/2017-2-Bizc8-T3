@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -43,39 +42,42 @@
                 Ingresa tu email y contraseña para ingresar.
             </p>
 
-            <form action="" method="post">
+            <form method="post">
                 {% csrf_token %}
                 <div class="form-group has-feedback">
-                    <input type='email' name = 'email' class="form-control" placeholder="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <input type="text" class="form-control"
+                        placeholder="Nombre de Usuario"
+                        name="username">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type='password' name= 'password' class="form-control" placeholder="Contraseña">
+                    <input type="password" class="form-control"
+                        placeholder="Contraseña"
+                        name="password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox">
-                                &nbsp; Recuérdame
-                            </label>
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+                    <div class="col-xs-12 text-center">
+                        <button type="submit"
+                            class="btn btn-primary btn-flat">
+                            Ingresar
+                        </button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
 
-            <a href="#">Olvidé mi contraseña.</a><br>
-            
+            <!-- <a href="#">Olvidé mi contraseña.</a><br> -->
+
+            <br><br>
+            <div class="text-center">
+                ¿Aún no tienes cuenta?
+            </div>
+
             <br>
 
             <div>
-                <a href="{% url 'sign-up'%}" class="btn btn-success btn-block btn-flat">Regístrate</a>
+                <a href="{% url 'user:register' %}" class="btn btn-success btn-block btn-flat">
                     Regístrate
                 </a>
             </div>
@@ -114,4 +116,3 @@
 </body>
 
 </html>
-

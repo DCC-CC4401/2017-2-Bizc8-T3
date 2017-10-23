@@ -4,10 +4,10 @@ from django.views.generic import TemplateView
 
 
 class AnimalsforAdoptionView(TemplateView):
-
     template_name = 'animal/animals-for-adoption-user.html'
 
 
 class AnimalDetailView(TemplateView):
-
     template_name = 'animal/animal-detail.html'
+
+
