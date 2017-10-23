@@ -43,17 +43,34 @@
                 registrarte.
             </p>
 
-            <form action="" method="post">
+            <!-- <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Enviar</button>
+            </form> -->
+
+            <form method="post">
+                {% csrf_token %}
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control"
-                        placeholder="Nombre Completo">
+                    <input type="text" class="form-control"
+                        placeholder="Nombre Completo"
+                        name="first_name">
                     <span
                         class="glyphicon glyphicon-user form-control-feedback">
                     </span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control"
-                        placeholder="Email">
+                    <input type="text" class="form-control"
+                        placeholder="Nombre de usuario"
+                        name="username">
+                    <span
+                        class="glyphicon glyphicon-user form-control-feedback">
+                    </span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control"
+                        placeholder="Email"
+                        name="email">
                     <span
                         class="glyphicon glyphicon-envelope
                             form-control-feedback">
@@ -61,26 +78,26 @@
                 </div>
                 <div class="form-group has-feedback">
                     <input type="password" class="form-control"
-                        placeholder="Contraseña">
+                        placeholder="Contraseña"
+                        name="password1">
                     <span
                         class="glyphicon glyphicon-lock form-control-feedback">
                     </span>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="password" class="form-control"
-                        placeholder="Repetir Contraseña">
+                        placeholder="Repetir Contraseña"
+                        name="password2">
                     <span
                         class="glyphicon glyphicon-log-in
                             form-control-feedback">
                     </span>
                 </div>
-            </form>
-
-            <div>
-                <a href="#" class="btn btn-success btn-block btn-flat">
+                <button type="submit" 
+                    class="btn btn-success btn-block btn-flat">
                     Regístrate en Cholito
-                </a>
-            </div>
+                </button>
+            </form>
 
         </div>
         <!-- /.login-box-body -->
