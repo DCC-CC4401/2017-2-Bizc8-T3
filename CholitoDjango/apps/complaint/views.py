@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView
@@ -34,12 +35,13 @@ class AddComplaintView(View):
     def post(self, request):
         typecomplaint = request.POST['type_complaint']
         color = request.POST['color']
-        sex = request.POST['sex']
         type_animal = request.POST['type_animal']
-        hurt = request.POST['hurt']
         description = request.POST['description']
-        if not complaint_check(typecomplaint, type_animal, color, sex, hurt):
+        if not complaint_check(typecomplaint, type_animal, color):
             return self.get(request)
+
+        hurt = request.POST['hurt']
+        sex = request.POST['sex']
         complaint = Complaint(type=type_animal, complaintType=typecomplaint, hurt=hurt, sex=sex,
                               description=description)
         complaint.save()
@@ -48,5 +50,15 @@ class AddComplaintView(View):
 
 
 class ComplaintDetailView(View):
-    def get(self, request):
-        id = request.GET['id']
+    def get(self, request, pk, **kwargs):
+        complaint = Complaint.objects.get(pk=pk)
+        type = ["Gato", "Perro", "Loro", "Vaca", "Caballo", "Otro"]
+        status = ["Reportada", "Consolidada", "Verificada", "Cerrada", "Desechada"]
+        hurt = ["Sí", "No"]
+        sex = ["Macho", "Hembra"]
+        complaintType = ["Abandono en la calle", "Exposición a temperaturas extremas", "Falta de comida",
+                         "Falta de agua", "Violencia", "Venta ambulante"]
+
+        context = {'complaint': complaint, 'status': status, 'type': type, 'hurt': hurt, 'sex': sex,
+                   'complaintType': complaintType}
+        return render(request, 'complaint/complaint-detail.html', context)

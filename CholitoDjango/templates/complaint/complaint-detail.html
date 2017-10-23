@@ -30,15 +30,14 @@
                                             <select class="form-control"
                                                 name="estado"
                                                 id="estado">
-                                                <option></option>
-                                                <option selected="selected"
-                                                    value="">
-                                                    Reportada
+                                                 <option selected="selected">
+                                                    {{complaint.status}}
                                                 </option>
-                                                <option>Consolidada</option>
-                                                <option>Verificada</option>
-                                                <option>Cerrada</option>
-                                                <option>Desechada</option>
+                                                {% for sta in status%}
+                                                    {% if sta != complaint.status%}
+                                                    <option>{{sta}}</option>
+                                                    {% endif%}
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -50,8 +49,9 @@
                                                 id="estado">
                                                 <option></option>
                                                 <option>Sí</option>
+                                                <option>No</option>
                                                 <option selected="selected">
-                                                    No
+                                                    {{complaint.hurt}}
                                                 </option>
                                             </select>
                                         </div>
@@ -71,8 +71,9 @@
                                                     exrtremas
                                                 </option>
                                                 <option selected="selected">
-                                                    Falta de agua
+                                                    {{complaint.complaintType}}
                                                 </option>
+                                                <option>Falta de agua</option>
                                                 <option>Falta de comida</option>
                                                 <option>Violencia</option>
                                                 <option>Venta ambulante</option>
@@ -91,8 +92,9 @@
                                                 placeholder="Enter email">
                                                 <option value=""></option>
                                                 <option selected="selected">
-                                                    Perro
+                                                    {{complaint.type}}
                                                 </option>
+                                                <option>Perro</option>
                                                 <option>Gato</option>
                                                 <option>Loro</option>
                                                 <option>Vaca</option>
@@ -109,8 +111,9 @@
                                                 id="estado">
                                                 <option></option>
                                                 <option selected="selected">
-                                                    Hembra
+                                                    {{complaint.sex}}
                                                 </option>
+                                                <option>Hembra</option>
                                                 <option>Macho</option>
                                             </select>
                                         </div>
@@ -121,7 +124,7 @@
                                             <input type="text"
                                                 class="form-control"
                                                 id="inputEmail3"
-                                                value="Blanco">
+                                                value={{complaint.color}}>
                                         </div>
                                     </div>
                                     <!-- /.col -->
@@ -136,7 +139,7 @@
                                             </label>
                                             <textarea name="" id="description"
                                                 rows="5"
-                                                class="form-control">Hola.
+                                                class="form-control">{{complaint.description}}
                                             </textarea>
                                         </div>
                                     </div>

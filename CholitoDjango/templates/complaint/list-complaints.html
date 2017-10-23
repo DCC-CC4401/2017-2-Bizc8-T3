@@ -114,7 +114,7 @@
                                 </thead>
                                     {% for complaint in complaints %}
                                         <tbody>
-                                            <tr onclick="location='{% url 'complaint:detail' %}{{complaint.id}}'"
+                                            <tr onclick="location='{% url 'complaint:detail' complaint.pk %}'"
                                                   class="e-table__tr">
                                                 <td>
                                                     {{complaint.status}}
