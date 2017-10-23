@@ -62,3 +62,18 @@ class ComplaintDetailView(View):
         context = {'complaint': complaint, 'status': status, 'type': type, 'hurt': hurt, 'sex': sex,
                    'complaintType': complaintType}
         return render(request, 'complaint/complaint-detail.html', context)
+
+    def post(self,request,**kwargs):
+        id = request.POST['id']
+        complaint = Complaint.objects.get(id =id)
+        complaint.status = request.POST['status']
+        complaint.complaintType = request.POST['type_complaint']
+        complaint.type = request.POST['type_animal']
+        complaint.hurt =request.POST['hurt']
+        complaint.sex = request.POST['sex']
+        complaint.description = request.POST['description']
+
+        complaint.save()
+        return redirect('/denuncias')
+
+

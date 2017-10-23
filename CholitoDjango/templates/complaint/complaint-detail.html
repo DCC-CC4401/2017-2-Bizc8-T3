@@ -20,7 +20,8 @@
                             </h3>
                         </div>
                         <div class="box-body">
-                            <form>
+                            <form action="" method="POST">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
@@ -28,9 +29,9 @@
                                                 Estado
                                             </label>
                                             <select class="form-control"
-                                                name="estado"
-                                                id="estado">
-                                                 <option selected="selected">
+                                                name="status"
+                                                id="status">
+                                                 <option selected>
                                                     {{complaint.status}}
                                                 </option>
                                                 {% for sta in status%}
@@ -45,76 +46,72 @@
                                                 Herido
                                             </label>
                                             <select class="form-control"
-                                                name="estado"
-                                                id="estado">
-                                                <option></option>
-                                                <option>Sí</option>
-                                                <option>No</option>
-                                                <option selected="selected">
+                                                name="hurt"
+                                                id="hurt">
+
+                                                <option selected>
                                                     {{complaint.hurt}}
                                                 </option>
+                                                 {% for sta in hurt%}
+                                                    {% if sta != complaint.hurt%}
+                                                    <option>{{sta}}</option>
+                                                    {% endif%}
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="type-complaint">
+                                            <label>
                                                 Tipo de Denuncia
                                             </label>
                                             <select class="form-control"
-                                                name="type-complaint"
-                                                id="type-complaint">
-                                                <option></option>
-                                                <option>
-                                                    Abandono en la Calle
-                                                </option>
-                                                <option>
-                                                    Exposición a temperaturas
-                                                    exrtremas
-                                                </option>
-                                                <option selected="selected">
+                                                name="type_complaint"
+                                                id="type_complaint">
+                                                <option selected>
                                                     {{complaint.complaintType}}
                                                 </option>
-                                                <option>Falta de agua</option>
-                                                <option>Falta de comida</option>
-                                                <option>Violencia</option>
-                                                <option>Venta ambulante</option>
+                                                    {% for sta in complaintType %}
+                                                    {% if sta != complaint.complaintType%}
+                                                    <option>{{sta}}</option>
+                                                    {% endif%}
+                                                {% endfor %}
                                             </select>
                                         </div>
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="type-animal">
+                                            <label>
                                                 Tipo de Animal
                                             </label>
                                             <select class="form-control"
-                                                id="input-type-animal"
-                                                name="type-animal"
-                                                placeholder="Enter email">
+                                                id="type_animal"
+                                                name="type_animal">
                                                 <option value=""></option>
-                                                <option selected="selected">
+                                                <option selected>
                                                     {{complaint.type}}
                                                 </option>
-                                                <option>Perro</option>
-                                                <option>Gato</option>
-                                                <option>Loro</option>
-                                                <option>Vaca</option>
-                                                <option>Caballo</option>
-                                                <option value="">Otro</option>
+                                                    {% for sta in type%}
+                                                    {% if sta != complaint.type%}
+                                                    <option>{{sta}}</option>
+                                                    {% endif%}
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="estado">
+                                            <label >
                                                 Sexo
                                             </label>
                                             <select class="form-control"
-                                                name="estado"
-                                                id="estado">
-                                                <option></option>
-                                                <option selected="selected">
+                                                name="sex"
+                                                id="sex">
+                                                <option selected>
                                                     {{complaint.sex}}
                                                 </option>
-                                                <option>Hembra</option>
-                                                <option>Macho</option>
+                                                {% for sta in sex %}
+                                                    {% if sta != complaint.sex%}
+                                                        <option>{{sta}}</option>
+                                                    {% endif%}
+                                                {% endfor %}
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -123,7 +120,7 @@
                                             </label>
                                             <input type="text"
                                                 class="form-control"
-                                                id="inputEmail3"
+                                                id="color"
                                                 value={{complaint.color}}>
                                         </div>
                                     </div>
@@ -133,26 +130,27 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="form-group">
-                                            <label class="control-label"
-                                                for="description">
+                                            <label class="control-label">
                                                 Descripción
                                             </label>
-                                            <textarea name="" id="description"
+                                            <textarea name='description' id='description'
                                                 rows="5"
                                                 class="form-control">{{complaint.description}}
                                             </textarea>
+                                            <input type="hidden" name="id" value={{ complaint.id }}>
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- /.row -->
-                            </form>
-                        </div>
-                        <div class="box-footer text-right">
-                            <a href="#" class="btn btn-primary">
-                                <i class="fa fa-floppy-o"></i>
+                                <div class="box-footer text-right">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-floppy-o"></i>
                                 &nbsp;
-                                <b>Guardar cambios</b>
-                            </a>
+                                        <b>Guardar cambios</b>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
