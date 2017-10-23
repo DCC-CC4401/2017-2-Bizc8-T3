@@ -1,4 +1,6 @@
 from django.db import models
+from apps.animal.models import Animal
+from apps.user.models import Muni
 
 # Create your models here.
 class Complaint(models.Model):
@@ -8,5 +10,5 @@ class Complaint(models.Model):
     animal_id = models.ForeignKey(Animal, on_delete=models.CASCADE())
     hurt = models.BooleanField()
     date = models.DateTimeField
-    municipality_id = models.ForeignKey(Municipality, on_delete=models.CASCADE)
+    municipality_id = models.ForeignKey(Muni, on_delete=models.CASCADE)
     status = models.CharField(max_length=1000)
