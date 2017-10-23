@@ -101,6 +101,7 @@
                 <div class="col-lg-12">
                     <div class="box box-primary">
                         <div class="box-body table-responsive">
+
                             <table id="example2"
                                 class="table table-bordered table-hover">
                                 <thead>
@@ -111,53 +112,27 @@
                                         <th>Tipo de Animal</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr onclick="location='{% url 'complaint:detail' %}'"
-                                        class="e-table__tr">
-                                        <td>
-                                            Reportada
-                                        </td>
-                                        <td>
-                                            No
-                                        </td>
-                                        <td>
-                                            Abandono en la calle
-                                        </td>
-                                        <td>
-                                            Perro
-                                        </td>
-                                    </tr>
-                                    <tr onclick="location='{% url 'complaint:detail' %}'"
-                                        class="e-table__tr">
-                                        <td>
-                                            Consolidada
-                                        </td>
-                                        <td>
-                                            No
-                                        </td>
-                                        <td>
-                                            Exposición a temperaturas extremas
-                                        </td>
-                                        <td>
-                                            Gato
-                                        </td>
-                                    </tr>
-                                    <tr onclick="location='{% url 'complaint:detail' %}'"
-                                        class="e-table__tr">
-                                        <td>
-                                            Verificada
-                                        </td>
-                                        <td>
-                                            No
-                                        </td>
-                                        <td>
-                                            Falta de Agua
-                                        </td>
-                                        <td>
-                                            Perro
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                    {% for complaint in complaints %}
+                                        <tbody>
+                                            <tr onclick="location='{% url 'complaint:detail' %}{{complaint.id}}'"
+                                                  class="e-table__tr">
+                                                <td>
+                                                    {{complaint.status}}
+                                                </td>
+                                                <td>
+                                                    {{complaint.hurt}}
+                                                </td>
+                                                <td>
+                                                    {{complaint.complaintType}}
+                                                </td>
+                                                <td>
+                                                    {{complaint.type}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    {% endfor %}
+
+
                             </table>
                         </div>
                         <!-- /.box-body -->
