@@ -43,7 +43,7 @@ class AddComplaintView(View):
         hurt = request.POST['hurt']
         sex = request.POST['sex']
         complaint = Complaint(type=type_animal, complaintType=typecomplaint, hurt=hurt, sex=sex,
-                              description=description)
+                              description=description,color=color)
         complaint.save()
 
         return redirect('/')
@@ -72,6 +72,7 @@ class ComplaintDetailView(View):
         complaint.hurt =request.POST['hurt']
         complaint.sex = request.POST['sex']
         complaint.description = request.POST['description']
+        complaint.color = request.POST['color']
 
         complaint.save()
         return redirect('/denuncias')

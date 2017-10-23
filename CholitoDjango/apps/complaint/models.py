@@ -14,6 +14,7 @@ class Complaint(models.Model):
     status = models.CharField(max_length=100, default="Reportada")
     description = models.CharField(max_length=300, null=True, blank=True)
     commune = models.CharField(max_length=100, null=True, blank=True)
+    color = models.CharField(max_length=50,blank=True)
 
     def __str__(self):
         return self.type
