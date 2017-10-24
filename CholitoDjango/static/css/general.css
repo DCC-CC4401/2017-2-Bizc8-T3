@@ -1,3 +1,11 @@
+.e-table__tr {
+    cursor: pointer;
+}
+
+/* .e-table__td {
+    vertical-align: middle;
+} */
+
 .c-bar-chart {
     height: 300px;
 }
@@ -64,14 +72,61 @@
     width: 100px;
 }
 
-.c-mapa {
+/* .c-map {
     width: 100%;
     height:700px;
     background:yellow;
     border-top: 3px solid #d2d6de;
+} */
+
+.c-map {
+    width: 100%;
+    position: relative;
+}
+
+.c-map__img {
+    border-top: 3px solid #d2d6de;
+    margin: auto;
+}
+
+.c-pin--1 {
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    left: 5%;
+}
+
+.c-pin--2 {
+    position: absolute;
+    cursor: pointer;
+    top: 9%;
+    left: 45%;
+}
+
+.c-pin--3 {
+    position: absolute;
+    cursor: pointer;
+    top: 55%;
+    right: 4%;
+}
+
+.c-pin-denuncia {
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    left: 45%;
 }
 
 .c-filtro-adoptar {
     padding: 10px;
     color: white;
+}
+
+.c-form-control--without-input {
+    border: none;
+    color: rgb(60,141,188);
+}
+
+.c-form-control--without-input[readonly] {
+    background-color: white;
 }

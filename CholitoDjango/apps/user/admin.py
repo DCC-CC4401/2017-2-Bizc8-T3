@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+
+from .models import Municipality, ONG, TypeUser
+
+admin.site.register(Municipality)
+admin.site.register(ONG)
+admin.site.register(TypeUser)
