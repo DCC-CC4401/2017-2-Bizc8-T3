@@ -1,17 +1,11 @@
-# -*- coding: utf-8 -*-
-from django.shortcuts import render, redirect
-from django.views import View
-from django.views.generic import TemplateView
-from .models import Complaint
-from .forms import *
-from .utils import complaint_check
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView
 from django.urls import reverse
 from .models import Complaint
+from .forms import *
+from .utils import complaint_check
 
 
 class ListComplaintsView(View):
