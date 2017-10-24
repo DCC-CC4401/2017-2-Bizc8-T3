@@ -122,9 +122,12 @@
                             </form>
                         </div>
                         <div class="box-footer text-center">
-                            <a href="#" class="btn btn-success">
-                                <b>Adóptame</b>
-                            </a>
+                            <form action="/animal/1/" method="POST">
+                                {% csrf_token %}
+                            <input type ="hidden" name="id" value={{animal.id}}>
+                                <input type ="hidden" name="adoption" value="SI">
+                            <button class="btn btn-success" type="submit">Adóptame</button>
+                            </form>
                         </div>
                     </div>
                 </div>
