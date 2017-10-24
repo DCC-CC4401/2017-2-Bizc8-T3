@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+
 from .models import Municipality, ONG, TypeUser
 
 admin.site.register(Municipality)

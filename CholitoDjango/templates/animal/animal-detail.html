@@ -40,10 +40,10 @@
                     <div class="box box-primary">
                         <div class="box-body text-center">
                             <img class="img-responsive img-circle"
-                                src="{% static 'img/perro-200x200.jpg' %}"
+                                src="../../{{animal.picture}}"
                                 alt="User profile picture" style="margin:auto"
                                 width="156">
-                            <h3 class="profile-username">Candy</h3>
+                            <h3 class="profile-username">{{animal.name}}</h3>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -69,7 +69,7 @@
                                                 <input type="text"
                                                     class="form-control c-form-control--without-input"
                                                     id="inputEmail3"
-                                                    value="Perro"
+                                                    value={{animal.type}}
                                                     readonly="readonly">
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@
                                                 <input type="text"
                                                     class="form-control c-form-control--without-input"
                                                     id="inputEmail3"
-                                                    value="Macho"
+                                                    value={{animal.sex}}
                                                     readonly="readonly">
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@
                                                 <input type="text"
                                                     class="form-control c-form-control--without-input"
                                                     id="inputEmail3"
-                                                    value="4 años (aprox.)"
+                                                    value={{animal.age}}
                                                     readonly="readonly">
                                             </div>
                                         </div>
@@ -122,9 +122,12 @@
                             </form>
                         </div>
                         <div class="box-footer text-center">
-                            <a href="#" class="btn btn-success">
-                                <b>Adóptame</b>
-                            </a>
+                            <form action="/animal/1/" method="POST">
+                                {% csrf_token %}
+                            <input type ="hidden" name="id" value={{animal.id}}>
+                                <input type ="hidden" name="adoption" value="SI">
+                            <button class="btn btn-success" type="submit">Adóptame</button>
+                            </form>
                         </div>
                     </div>
                 </div>

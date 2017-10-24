@@ -26,4 +26,5 @@ urlpatterns = [
         name='login'),
     url(r'^logout/', logout_then_login, name='logout'),
     url(r'^admin/', admin.site.urls),
+
 ]
