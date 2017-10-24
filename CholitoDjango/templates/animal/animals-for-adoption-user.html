@@ -58,9 +58,13 @@
                                 <div class="c-info-box__btns__one">
                                     <form action="/animal/1/" method="POST">
                                         {% csrf_token %}
-                                    <input type ="hidden" name="id" value={{animal.id}}>
-                                        <input type ="hidden" name="adoption" value="NO">
-                                    <button class="btn btn-xs btn-info" type="submit">Ver<i class="fa fa-eye"></i></button>
+                                        <input type ="hidden" name="id" value={{animal.id}}>
+                                            <input type ="hidden" name="adoption" value="NO">
+                                        <button class="btn btn-xs btn-info" type="submit">
+                                            Ver
+                                            &nbsp;
+                                            <i class="fa fa-eye"></i>
+                                        </button>
                                     </form>
                                 </div>
                             </div>

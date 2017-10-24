@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.views import View
-from django.views.generic import TemplateView
-from .models import *
-from .utils import adopt
+from django.urls import reverse
+from apps.adoption.models import Adoption
+from apps.animal.models import Animal
 
 
 class AnimalsforAdoptionView(View):
@@ -14,22 +15,22 @@ class AnimalsforAdoptionView(View):
             return render(request, self.template_name, context)
 
 
-
-
 class AnimalDetailView(View):
     template_name = 'animal/animal-detail.html'
 
     def post(self, request):
         if request.user.is_authenticated == False:
-            return redirect('/')
+            return HttpResponseRedirect(reverse('animal:animals-for-adoption'))
+        elif request.user.typeuser.name != 'Natural':
+            return HttpResponseRedirect(reverse('animal:animals-for-adoption'))
         else:
-            id =request.POST['id']
+            id = request.POST['id']
             adoption = request.POST['adoption']
             if adoption == "NO":
                 animal = Animal.objects.get(id=id)
                 context = {'animal':animal}
-                return render(request,self.template_name,context)
+                return render(request, self.template_name, context)
             else:
-
-                adopt(id,request.user.id)
-                return redirect('../../ong/1/')
+                adoption = Adoption(animal_id=id, person_id=request.user.id)
+                adoption.save()
+                return HttpResponseRedirect(reverse('animal:animals-for-adoption'))
