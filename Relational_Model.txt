@@ -7,16 +7,19 @@
 user
 -
 id int
-email string
-pass string
-type string
+
+typeuser
+-
+id int
+user_id int FK >- user.id
+name string
 
 ong
 -
 id int
+user_id int FK >- user.id
 name string
 picture string
-address geo
 commune string
 
 favorite
@@ -27,6 +30,7 @@ ong_id int FK >- ong.id
 municipality as muni
 -
 id int
+user_id int FK >- user.id
 picture string # file name
 commune string
 
@@ -35,8 +39,9 @@ complaint
 id int
 place geo
 type text
-animal_id int FK >- animal.id
-hurt binary
+hurt boolean
+sex string
+color string
 date datetime
 status string
 description text
@@ -45,12 +50,14 @@ commune string
 animal
 -
 id int
-name NULL string
+name string
 type string FK >- type_animal.id
 sex string
 color string
-picture NULL string
-age NULL int
+picture string
+age int
+arrival datetime
+adopted boolean
 
 type_animal
 -
@@ -63,8 +70,8 @@ id int
 animal_id int FK >- animal.id
 ong_id int FK >- ong.id
 arrival datetime
-departure NULL datetime
-user_id NULL int FK >- user.id
+departure datetime
+person_id int FK >- user.id
 
 
 
@@ -75,11 +82,13 @@ DefaultFieldType int
 CaseSensitive on
 
 [layout]
-ong 425 155
-municipality 632 209
-complaint 625 -118
-animal 405 -117
-user 13 202
-adoption 174 29
-favorite 225 256
-type_animal 192 -114
+ong 188 183
+municipality 402 164
+complaint 626 105
+animal 444 -135
+user 191 50
+adoption -22 -132
+favorite 9 107
+type_animal 640 -27
+
+typeuser 301 -72
